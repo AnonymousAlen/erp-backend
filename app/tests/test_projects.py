@@ -1,6 +1,6 @@
 """tests/test_projects.py — FK validation, comments, workspace ownership tests"""
 import uuid
-from tests.conftest import get_client, override_db, make_mock_db, FIXED_USER_ID
+from app.tests.conftest import get_client, override_db, make_mock_db, FIXED_USER_ID
 
 
 class TestFKValidation:

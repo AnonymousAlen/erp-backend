@@ -151,8 +151,8 @@ def add_comment(
     comment = TaskComment(
         id=uuid.uuid4(),
         task_id=uuid.UUID(task_id),
-        author_id=uuid.UUID(current_user["user_id"]),
-        content=data.content,
+        user_id=uuid.UUID(current_user["user_id"]),
+        text=data.content,
     )
     db.add(comment)
     db.commit()
@@ -172,4 +172,4 @@ def get_comments(
         raise HTTPException(status_code=404, detail="Task not found")
 
     comments = db.query(TaskComment).filter(TaskComment.task_id == uuid.UUID(task_id)).all()
-    return [{"id": str(c.id), "content": c.content, "author_id": str(c.author_id)} for c in comments]
+    return [{"id": str(c.id), "content": c.text, "author_id": str(c.user_id)} for c in comments]

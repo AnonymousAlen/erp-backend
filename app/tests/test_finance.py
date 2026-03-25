@@ -1,6 +1,6 @@
 """tests/test_finance.py — Finance RBAC access tests"""
 import uuid
-from tests.conftest import get_client, override_db, make_mock_db
+from app.tests.conftest import get_client, override_db, make_mock_db
 
 
 class TestFinanceRBAC:

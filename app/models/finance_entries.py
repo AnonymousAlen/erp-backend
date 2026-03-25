@@ -22,4 +22,9 @@ class FinanceEntry(Base, TimestampMixin):
 
     amount = Column(Float)
 
+    type = Column(String)
+    client_name = Column(String)
+    currency = Column(String, default="INR")
+    category = Column(String, nullable=True)
+
     description = Column(String)

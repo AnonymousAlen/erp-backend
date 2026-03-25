@@ -20,4 +20,6 @@ class Sprint(Base, TimestampMixin):
 
     name = Column(String)
 
+    goal = Column(String, nullable=True)
+
     is_active = Column(Boolean, default=False)
