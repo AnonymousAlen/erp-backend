@@ -15,6 +15,8 @@ load_dotenv()
 # Import all route files (Week 1 RBAC + Week 2 Auth & User Management)
 from app.routes import projects, sprints, tasks, workspace, finance
 from app.routes import auth, users
+from webhooks.jibble.router import router as jibble_router
+from webhooks.github.router import router as github_router
 
 API_PREFIX = "/api/v1"
 
@@ -41,6 +43,8 @@ app.include_router(workspace.router, prefix=API_PREFIX)
 app.include_router(finance.router,  prefix=API_PREFIX)
 app.include_router(auth.router,     prefix=API_PREFIX)
 app.include_router(users.router,    prefix=API_PREFIX)
+app.include_router(jibble_router)
+app.include_router(github_router)
 
 
 @app.get("/")
